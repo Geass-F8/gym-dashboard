@@ -512,7 +512,7 @@ function todayStr() {
 function phaseForDate(dateStr) {
   if (!dateStr) return 'fase2';
   const d = new Date(dateStr + 'T12:00:00');
-  const cutoff = new Date('2026-05-22T00:00:00');
+  const cutoff = new Date('2026-05-21T00:00:00');
   return d >= cutoff ? 'fase2' : 'fase1';
 }
 
