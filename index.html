@@ -361,12 +361,12 @@
     <div class="field">
       <label>Día</label>
       <select id="inp-day" onchange="renderExercises()">
-        <option value="lunes">Lun — Push A</option>
-        <option value="martes">Mar — Pull A</option>
-        <option value="miercoles">Mié — Piernas A</option>
-        <option value="jueves">Jue — Push B</option>
-        <option value="viernes">Vie — Pull B</option>
-        <option value="sabado">Sáb — Piernas B</option>
+        <option value="lunes">Lun — Push</option>
+        <option value="martes">Mar — Pull</option>
+        <option value="miercoles">Mié — Piernas</option>
+        <option value="jueves">Jue — Push</option>
+        <option value="viernes">Vie — Pull</option>
+        <option value="sabado">Sáb — Piernas</option>
       </select>
     </div>
   </div>
@@ -453,74 +453,47 @@ const PHASES = {
   },
   fase2: {
     label: 'Fase 2 — Push / Pull / Piernas ×2',
-    lunes: {
-      label: 'Push A', badge: 'badge-push',
-      exercises: [
-        { name: 'Press de banca',               sets:4, reps:10, target:'45–50 kg',      iso:false },
-        { name: 'Press inclinado (mancuernas)', sets:3, reps:10, target:'14–18 kg c/m',  iso:false },
-        { name: 'Press de hombro (mancuernas)', sets:4, reps:10, target:'12–14 kg c/m',  iso:false },
-        { name: 'Elevaciones laterales',        sets:3, reps:12, target:'6–8 kg c/m',    iso:false },
-        { name: 'Extensión de tríceps (polea)', sets:3, reps:12, target:'15–20 kg',      iso:false },
-        { name: 'Plancha',                      sets:3, reps:null, target:'40 seg',      iso:true  }
-      ]
-    },
-    martes: {
-      label: 'Pull A', badge: 'badge-pull',
-      exercises: [
-        { name: 'Jalón al pecho (agarre ancho)', sets:4, reps:10, target:'45–55 kg',       iso:false },
-        { name: 'Remo con mancuerna',            sets:3, reps:10, target:'18–22 kg c/lado', iso:false },
-        { name: 'Jalón supino (bíceps)',         sets:3, reps:12, target:'30–35 kg',        iso:false },
-        { name: 'Face pull (polea alta)',        sets:3, reps:15, target:'10–15 kg',        iso:false },
-        { name: 'Curl de bíceps (mancuernas)',   sets:3, reps:12, target:'10–14 kg c/m',   iso:false },
-        { name: 'Plancha lateral',              sets:3, reps:null, target:'30 seg c/lado', iso:true  }
-      ]
-    },
-    miercoles: {
-      label: 'Piernas A', badge: 'badge-legs',
-      exercises: [
-        { name: 'Sentadilla (barra o máquina)', sets:4, reps:10, target:'50–60 kg',    iso:false },
-        { name: 'Prensa de piernas',           sets:3, reps:12, target:'80–100 kg',    iso:false },
-        { name: 'Extensión de cuádriceps',     sets:3, reps:15, target:'30–40 kg',     iso:false },
-        { name: 'Peso muerto rumano',          sets:3, reps:10, target:'20–25 kg c/m', iso:false },
-        { name: 'Curl de isquiotibiales',      sets:3, reps:15, target:'25–35 kg',     iso:false },
-        { name: 'Elevación de gemelos',        sets:3, reps:20, target:'PC o +10 kg',  iso:false }
-      ]
-    },
-    jueves: {
-      label: 'Push B', badge: 'badge-push',
-      exercises: [
-        { name: 'Press militar (barra o mancuernas)',  sets:4, reps:10, target:'40–50 kg',     iso:false },
-        { name: 'Press de banca inclinado',            sets:3, reps:10, target:'40–45 kg',     iso:false },
-        { name: 'Elevaciones laterales',               sets:4, reps:12, target:'7–9 kg c/m',   iso:false },
-        { name: 'Aperturas (mancuernas o pec deck)',   sets:3, reps:12, target:'10–14 kg c/m', iso:false },
-        { name: 'Fondos (banco o parallelas)',         sets:3, reps:12, target:'PC',           iso:false },
-        { name: 'Plancha con toque de hombro',        sets:3, reps:10, target:'10 c/lado',     iso:false }
-      ]
-    },
-    viernes: {
-      label: 'Pull B', badge: 'badge-pull',
-      exercises: [
-        { name: 'Remo en polea baja (agarre ancho)', sets:4, reps:10, target:'40–50 kg',       iso:false },
-        { name: 'Jalón al pecho (agarre cerrado)',   sets:3, reps:12, target:'35–45 kg',       iso:false },
-        { name: 'Remo con barra o T-bar',           sets:3, reps:10, target:'40–50 kg',       iso:false },
-        { name: 'Pullover (mancuerna)',              sets:3, reps:12, target:'16–20 kg',       iso:false },
-        { name: 'Curl martillo (mancuernas)',        sets:3, reps:12, target:'12–16 kg c/m',  iso:false },
-        { name: 'Hiperextensión de espalda',        sets:3, reps:15, target:'PC o +5 kg',     iso:false }
-      ]
-    },
-    sabado: {
-      label: 'Piernas B', badge: 'badge-legs',
-      exercises: [
-        { name: 'Peso muerto rumano',              sets:4, reps:10, target:'22–28 kg c/m',  iso:false },
-        { name: 'Sentadilla búlgara (mancuernas)', sets:3, reps:10, target:'12–16 kg c/m', iso:false },
-        { name: 'Hip thrust (barra o mancuernas)', sets:4, reps:12, target:'60–80 kg',      iso:false },
-        { name: 'Curl de isquiotibiales',          sets:3, reps:15, target:'27–37 kg',      iso:false },
-        { name: 'Extensión de cuádriceps',         sets:3, reps:15, target:'32–42 kg',      iso:false },
-        { name: 'Elevación de gemelos (una pierna)',sets:3, reps:15, target:'PC c/pierna',  iso:false }
-      ]
-    }
+    lunes:    { label: 'Push',    badge: 'badge-push', exercises: pushExercises()   },
+    martes:   { label: 'Pull',    badge: 'badge-pull', exercises: pullExercises()   },
+    miercoles:{ label: 'Piernas', badge: 'badge-legs', exercises: legExercises()    },
+    jueves:   { label: 'Push',    badge: 'badge-push', exercises: pushExercises()   },
+    viernes:  { label: 'Pull',    badge: 'badge-pull', exercises: pullExercises()   },
+    sabado:   { label: 'Piernas', badge: 'badge-legs', exercises: legExercises()    }
   }
 };
+
+function pushExercises() {
+  return [
+    { name: 'Press de banca',               sets:4, reps:10, target:'45–50 kg',     iso:false },
+    { name: 'Press inclinado (mancuernas)', sets:3, reps:10, target:'14–18 kg c/m', iso:false },
+    { name: 'Press de hombro (mancuernas)', sets:4, reps:10, target:'12–14 kg c/m', iso:false },
+    { name: 'Elevaciones laterales',        sets:3, reps:12, target:'6–8 kg c/m',   iso:false },
+    { name: 'Extensión de tríceps (polea)', sets:3, reps:12, target:'15–20 kg',     iso:false },
+    { name: 'Plancha',                      sets:3, reps:null, target:'40 seg',     iso:true  }
+  ];
+}
+
+function pullExercises() {
+  return [
+    { name: 'Jalón al pecho (agarre ancho)', sets:4, reps:10, target:'45–55 kg',        iso:false },
+    { name: 'Remo con mancuerna',            sets:3, reps:10, target:'18–22 kg c/lado',  iso:false },
+    { name: 'Jalón supino (bíceps)',         sets:3, reps:12, target:'30–35 kg',         iso:false },
+    { name: 'Face pull (polea alta)',        sets:3, reps:15, target:'10–15 kg',         iso:false },
+    { name: 'Curl de bíceps (mancuernas)',   sets:3, reps:12, target:'10–14 kg c/m',    iso:false },
+    { name: 'Plancha lateral',              sets:3, reps:null, target:'30 seg c/lado',  iso:true  }
+  ];
+}
+
+function legExercises() {
+  return [
+    { name: 'Sentadilla (barra o máquina)', sets:4, reps:10, target:'50–60 kg',     iso:false },
+    { name: 'Peso muerto rumano',           sets:4, reps:10, target:'20–25 kg c/m', iso:false },
+    { name: 'Prensa de piernas',            sets:3, reps:12, target:'80–100 kg',    iso:false },
+    { name: 'Extensión de cuádriceps',      sets:3, reps:15, target:'30–40 kg',     iso:false },
+    { name: 'Curl de isquiotibiales',       sets:3, reps:15, target:'25–35 kg',     iso:false },
+    { name: 'Elevación de gemelos',         sets:3, reps:20, target:'PC o +10 kg',  iso:false }
+  ];
+}
 
 function fullBodyExercises() {
   return [
